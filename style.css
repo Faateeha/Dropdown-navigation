@@ -1,0 +1,238 @@
+/*basic reset*/
+*, *::after,*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'poppins', sans-serif;
+    font-size: 1rem;
+    background-color: hsl(0, 0%, 98%);
+    font-weight: 400;
+    font-style: normal;
+    width: 1440px;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+@font-face {
+    font-family: Epilogue;
+    src: url(https://fonts.google.com/specimen/Epilogue);
+}
+
+/*navbar*/
+
+.navigation {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    color: hsl(0, 0%, 41%);
+    cursor: pointer;
+}
+
+.navigation li:hover {
+    color: hsl(0, 0%, 8%);
+    font-weight: bold;
+}
+.d-flex ul{
+    display: flex;
+}
+.d-flex {
+    display: flex;
+}
+.logo{
+    margin-right: 50px;
+    padding-left: 30px;
+}
+.navbar-menu {
+    display: flex;
+}
+.navbar-menu li{
+    margin-right: 20px;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: hsl(0, 0%, 98%);
+    min-width: 160px;
+    z-index: 1;
+}
+.dropdown-content a {
+    color: hsl(0, 0%, 41%);
+    padding: 12px 16px;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+}
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.navbar-menu2 li{
+    margin-right: 10px;
+}
+.navbar-menu2 li button {
+    border-radius: 7px;
+    width: 80px;
+    height: 30px;
+    margin-top: -20px;
+    color: hsl(0, 0%, 41%);
+    border-color: hsl(0, 0%, 41%);
+    cursor: pointer;
+}
+.navbar-menu2 li button:hover{
+    color: hsl(0, 0%, 8%);
+    font-weight: bold;
+}
+.hamburger {
+    display: none;
+}
+.close-btn {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/*main*/
+.main{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    font-family: 'Epilogue', sans-serif; 
+}
+.main-left{
+    flex: 1;
+    padding-left: 80px;
+}
+.main-right img{
+    flex: 0;
+    height: 500px;
+}
+.main-right .image{
+    display: none;
+}
+
+.text{ 
+    font-size: 6rem;
+    margin-bottom: 40px;
+}
+.text-2{
+    font-size: 1.2rem;
+    color: hsl(0, 0%, 41%);
+}
+.main button {
+    background-color: hsl(0, 0%, 8%);
+    color: hsl(0, 0%, 98%);
+    border-color: hsl(0, 0%, 8%);
+    width: 110px;
+    height: 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: none;
+    margin: 40px 0px 80px 0px;
+    cursor: pointer;
+}
+.main button:hover {
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(0, 0%, 8%);
+    border-color: red;
+}
+.image-container img{
+    margin-right: 20px;
+}
+
+/*media query*/
+@media (max-width:375px) {
+    body{
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .hamburger{
+        display: block;
+        cursor: pointer;
+        padding-right: 10px;
+    }
+    .d-flex {
+        position: fixed;
+        top: 10px;
+        right: -250px; /* Off-screen by default on mobile */
+        width: 250px;
+        height: 100%;
+        background-color: hsl(0, 0%, 98%);
+        transition: right 0.3s ease;
+        display: block;
+        padding-right: 20px;
+        z-index: 999; 
+    }
+    .d-flex ul {
+        display: block;
+        position: fixed;
+        top: 50px;
+    }
+    .d-flex.active .close-btn {
+        display: block;
+    }
+    .d-flex.active {
+        right: 0;
+        padding-bottom: 20px;
+    }
+    .navbar-menu2.active{
+        right: 0;
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); 
+        z-index: 998; 
+        display: none; 
+    }
+    
+    .overlay.active {
+        display: block; /* Show when active */
+    }
+    .main{
+        flex-direction: column;
+    }
+    .main-left{
+        order:2;
+        margin: 0 auto;
+        padding-right: 30px;
+    }
+    .main-right img {
+        display: none;
+    }
+    .main-right .image {
+        order:1;
+        width: 375px;
+        display: block;
+    }
+    .text{
+        font-size: 1.8rem;
+        margin-top: 30px;
+    }
+    .main button{
+        justify-content: center;
+        align-items: center;
+        margin-left: 65px;
+        
+    }
+    
+}
+
