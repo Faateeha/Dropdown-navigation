@@ -59,26 +59,26 @@ li {
 .navbar-menu li{
     margin-right: 20px;
 }
-.dropdown-content {
-    display: none;
+ul .dropdown{
     position: absolute;
+    width: 140px;
+    padding: 10px;
     background-color: hsl(0, 0%, 98%);
-    min-width: 160px;
-    z-index: 1;
-}
-.dropdown-content a {
-    color: hsl(0, 0%, 41%);
-    padding: 12px 16px;
+    box-shadow: 0 20px 45px hsl(0, 0%, 8%);
+    margin-top: -50px;
     display: block;
-    text-align: left;
-    text-decoration: none;
+    opacity: 0;
+    z-index: -999;
+    transition: all ease 0.5s;
 }
-.dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
+.dropdown li {
+    padding-bottom: 10px;
 }
-.dropdown:hover .dropdown-content {
-    display: block;
+
+header ul li:hover .dropdown {
+   z-index: 99;
+   opacity: 1; 
+   margin-top: 0;
 }
 .navbar-menu2 li{
     margin-right: 10px;
@@ -105,6 +105,33 @@ li {
     top: 10px;
     right: 10px;
     cursor: pointer;
+}
+.mobile-navbar {
+    display: none;
+    position: absolute;
+    right: 0rem;
+    top: 60px;
+    height: 0;
+    width: 200px;
+    background: hsl(0, 0%, 98%);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.mobile-navbar.open{
+    height: 100%;
+}
+.mobile-navbar li{
+    padding: 1rem;
+}
+li .bi {
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 /*main*/
@@ -160,39 +187,21 @@ li {
     body{
         max-width: 100%;
         margin: 0 auto;
+        height: 100%;
     }
     .hamburger{
         display: block;
         cursor: pointer;
         padding-right: 10px;
     }
-    .d-flex {
-        position: fixed;
-        top: 10px;
-        right: -250px; /* Off-screen by default on mobile */
-        width: 250px;
-        height: 100%;
-        background-color: hsl(0, 0%, 98%);
-        transition: right 0.3s ease;
-        display: block;
-        padding-right: 20px;
-        z-index: 999; 
+    .d-flex,
+    .navbar-menu2 {
+        display: none;
     }
-    .d-flex ul {
-        display: block;
-        position: fixed;
-        top: 50px;
-    }
-    .d-flex.active .close-btn {
+    .mobile-navbar{
         display: block;
     }
-    .d-flex.active {
-        right: 0;
-        padding-bottom: 20px;
-    }
-    .navbar-menu2.active{
-        right: 0;
-    }
+   
     .overlay {
         position: fixed;
         top: 0;
@@ -233,6 +242,7 @@ li {
         margin-left: 65px;
         
     }
+    
     
 }
 

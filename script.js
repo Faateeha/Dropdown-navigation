@@ -1,9 +1,15 @@
-function hamburger(){
-    var menu = document.querySelector('.d-flex');
-    var overlay = document.querySelector('.overlay');
-    var closeBtn = document.querySelector('.close-btn');
+const hamburger = document.querySelector(".hamburger");
+const hamburgerIcon = document.querySelector(".hamburger img");
+const mobileNavbar = document.querySelector(".mobile-navbar");
 
-    menu.classList.toggle('active');
-    overlay.classList.toggle('active');
-    closeBtn.classList.toggle('active');
-}
+
+hamburger.onclick = function () {
+  mobileNavbar.classList.toggle("open");
+  const isOpen = mobileNavbar.classList.contains('open');
+
+  hamburgerIcon.classList = isOpen
+    ? "./images/images/icon-menu.svg"
+    : "./images/images/icon-close-menu.svg"
+    
+};
+
